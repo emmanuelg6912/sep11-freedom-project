@@ -32,8 +32,48 @@
 * Im going to try to tinker more with the different pins and also customizable markers that are in leaflet and research more on tools that use GPS for people with disabilities. 
 
 ### 10/20/26:
-* Text
+* started testing out different pins and customizable marker 
+    * theres many different shapes you can add such as triangles, circles, polygons, and you can customize their color, opacity, and radius for circles 
+    EX:
+    ```js 
+    //circle example 
+    var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+    }).addTo(map);
 
+    //polygon/triangle example 
+    var polygon = L.polygon([
+    [51.509, -0.08], // this represents the first point 
+    [51.503, -0.06], // second point 
+    [51.51, -0.047] //third point and so on... 
+    ]).addTo(map);
+
+    //marker evample
+    var marker = L.marker([51.5, -0.09]).addTo(map);
+
+* I noticed that you can also create popups that when the user clicks on a specific part of the map the alert states their given coordinate 
+    EX:
+    ```js
+    var popup = L.popup();
+
+    function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng) 
+        .setContent("You clicked the map at " + e.latlng.toString()) // this is the text that will be shown in the alert
+        .openOn(map); // this action will open the alert on the map 
+    }
+
+    map.on('click', onMapClick); // map.on is allowing for the function to be called 
+    ```
+
+* I tinkered more with the shapes and realized that with polygons, you can change its shape to whatever position of your choice. This can allow for the creation of even more shapes like squares, rectangles, octagons, pentagons etc... 
+* im still unsure as to what the different commands and actions inside of the functions do so I may need to research more about how these commands may work 
+* Im going to learn how to implement these concepts into a mobile device if possible 
+
+### 10/21/26
 
 <!-- 
 * Links you used today (websites, videos, etc)
