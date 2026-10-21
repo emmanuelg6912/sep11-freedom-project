@@ -53,20 +53,20 @@
 
     //marker evample
     var marker = L.marker([51.5, -0.09]).addTo(map);
-
+    ```
 * I noticed that you can also create popups that when the user clicks on a specific part of the map the alert states their given coordinate 
     EX:
+
     ```js
     var popup = L.popup();
 
-    function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng) 
-        .setContent("You clicked the map at " + e.latlng.toString()) // this is the text that will be shown in the alert
-        .openOn(map); // this action will open the alert on the map 
-    }
-
-    map.on('click', onMapClick); // map.on is allowing for the function to be called 
+        function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng) 
+            .setContent("You clicked the map at " + e.latlng.toString()) // this is the text that will be shown in the alert
+            .openOn(map); // this action will open the alert on the map 
+        }
+        map.on('click', onMapClick); // map.on is allowing for the function to be called 
     ```
 
 * I tinkered more with the shapes and realized that with polygons, you can change its shape to whatever position of your choice. This can allow for the creation of even more shapes like squares, rectangles, octagons, pentagons etc... 
@@ -74,6 +74,53 @@
 * Im going to learn how to implement these concepts into a mobile device if possible 
 
 ### 10/21/26
+
+* I started looking into the [leaflet on Mobile](https://leafletjs.com/examples/mobile/) tutorial 
+    * to first set up the mobile positioning, you need to use specific css code 
+        EX:
+        ```js
+        body {
+        padding: 0;
+        margin: 0;
+        }
+        html, body, #map {
+        height: 100%;
+        width: 100vw; // note: its recommended to use vh for websites such as google chrome
+        }
+        ```
+    * then you must place a line of code in the head of an html page which allows for the height of a given change to have a defined height and not its default 
+        EX:
+        ```html
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+        ```
+
+    * to allow for detection of user location, **geolocation** must be used to determine someones location which is done in javascript using the ``.locate`` and ``setview`` javascript methods 
+    * Although you only need to add this, you can also include markers to allow for more detail. In the document example, a function is created that uses the radius to determine how far in a specific amount of meters that you would be away from your house and ends it off with an error message just in case the location cannot be determined 
+        EX:
+        ```js
+        code for head of html:
+        map.locate({setView: true, maxZoom: 16}); 
+
+        code for javascript:
+        function onLocationFound(e) {
+        var radius = e.accuracy;
+
+        L.marker(e.latlng).addTo(map)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+        L.circle(e.latlng, radius).addTo(map);
+        }
+
+        function onLocationError(e) { // this will give an error message to the user
+        alert(e.message);
+        }
+
+        map.on('locationerror', onLocationError);
+
+        map.on('locationfound', onLocationFound);
+        ```
+    * I need to research more on the coordinate system for leaflet because I dont seem to understand how the positioning of markers work and how to overall change coordinates to corespond to a specific area. 
+    * Im going to try and look more into accsessible maps for leaflet and see how they may function 
 
 <!-- 
 * Links you used today (websites, videos, etc)
