@@ -120,7 +120,38 @@
         map.on('locationfound', onLocationFound);
         ```
     * I need to research more on the coordinate system for leaflet because I dont seem to understand how the positioning of markers work and how to overall change coordinates to corespond to a specific area. 
-    * Im going to try and look more into accsessible maps for leaflet and see how they may function 
+    * Im going to try and look more into accsessible maps for leaflet and see how they may function while also researching more on map coordinates 
+
+    ### 10/22/26 
+
+    * I researched more into ([basic leaflet accessibility](https://leafletjs.com/examples/accessibility/))
+        * Leaflet has accessible maps that dont require the use of using a mouse to access different part of a map 
+        * This can be done in two ways 
+            1. including labeled markers for user location 
+                EX:
+                ```js
+                var marker = L.marker([50.4501, 30.5234],
+                {alt: 'Kyiv'}).addTo(map) // "Kyiv" is the accessible name of this marker
+                .bindPopup('Kyiv, Ukraine is the birthplace of Leaflet!');
+                ```
+            2. having decorative maps that dont need to be zoomed in or zoom out 
+                EX:
+                ```js
+                <div id='decorative-map' inert></div>
+                <script src='https://unpkg.com/wicg-inert@latest/dist/inert.min.js'></script>
+                ```
+            3. testing out maps 
+            4. trying out different plugins 
+    * I then looked into how leaflets coordinate system worked 
+        * leaflet uses something called a **Spatial refrence system**/**coordinate refrence system** or short for CRF
+        * CRF coordinate systems use the distance of pixels from a screen whether it would be a phone to a computer  
+        * coordinate systems in leaflet work as ``[y,x]`` coordinates/``lat lng`` 
+            EX: [15,60] = indian ocean, [40.7, -74] = new york
+          
+    * I decided to try out a bunch of different coordinate positions to see what would happen
+    * Im not really sure how to precisely locate these positions.
+    * Im going to try to look more into the different types of leaflet commands and how they work
+    
 
 <!-- 
 * Links you used today (websites, videos, etc)
