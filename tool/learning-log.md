@@ -6,7 +6,9 @@
 
 ---
 
-### 10/19/26:
+## LL1
+
+### 10/19/26-10/23/26
 * started browsing on leaflet 
     * started looking at the quick start guide for leaflet 
         *  to start using leaflet, copy and paste the given css file link and include a javascript file AFTER leaflet css
@@ -31,7 +33,7 @@
 * Although my tool works for customizing maps and makes the whole process of making a map more easier, I still need a tool that could help with APIS and GPS features 
 * Im going to try to tinker more with the different pins and also customizable markers that are in leaflet and research more on tools that use GPS for people with disabilities. 
 
-### 10/20/26:
+
 * started testing out different pins and customizable marker 
     * theres many different shapes you can add such as triangles, circles, polygons, and you can customize their color, opacity, and radius for circles 
     EX:
@@ -73,7 +75,6 @@
 * im still unsure as to what the different commands and actions inside of the functions do so I may need to research more about how these commands may work 
 * Im going to learn how to implement these concepts into a mobile device if possible 
 
-### 10/21/26
 
 * I started looking into the [leaflet on Mobile](https://leafletjs.com/examples/mobile/) tutorial 
     * to first set up the mobile positioning, you need to use specific css code 
@@ -122,7 +123,7 @@
     * I need to research more on the coordinate system for leaflet because I dont seem to understand how the positioning of markers work and how to overall change coordinates to corespond to a specific area. 
     * Im going to try and look more into accsessible maps for leaflet and see how they may function while also researching more on map coordinates 
 
-    ### 10/22/26 
+  
 
     * I researched more into ([basic leaflet accessibility](https://leafletjs.com/examples/accessibility/))
         * Leaflet has accessible maps that dont require the use of using a mouse to access different part of a map 
@@ -151,6 +152,25 @@
     * I decided to try out a bunch of different coordinate positions to see what would happen
     * Im not really sure how to precisely locate these positions.
     * Im going to try to look more into the different types of leaflet commands and how they work
+
+    
+    * I decided to look more into how to properly locate coordinates using the CRF coordinate system 
+    * I found a article from a organization called [QGIS](https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/coordinate_reference_systems.html)
+        * Basically, how it works is that maps are put into map projections which are when maps change from 3d to 2d. 
+        * sometimes map projection can also apply for globes but its more diffucult 
+        * map projections will usually look like a circular graph which what ends of allowing for the creation of more accurate graphs
+            This is what a map projection looks like 
+            ![alt text](image.png)
+        * Although the process is difficult, there are usually projection map refrences that give the coordinate positionings which is what I might try to use 
+        * There is also another important factor that should be applied with projection maps and that is angles. 
+        * projection maps have two different sections of angles. One being lines of lattitude which are divided to 180 degree sections while lines of longitude only are divided into 60 degree sections 
+        * Another useful tool that helps with coordinates is a **Universal Transverse Mercator/UTM**
+        * they have the same angles of 60 degrees but in equal sections of 6 degrees and longitude sections being at 180 degrees, with the only difference being that y values will increase from the south and x values increase from the west 
+    * I want to see if theres any more refrences to these maps that can make looking for these coordinates more easier 
+    * Im going to try and learn more about using local API's and how I would implement one from new york
+
+
+LL2
     
 
 <!-- 
