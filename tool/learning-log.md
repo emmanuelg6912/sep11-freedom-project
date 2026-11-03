@@ -170,7 +170,11 @@
     * Im going to try and learn more about using local API's and how I would implement one from new york
 
 
-LL2
+### LL2
+    * I decided to look more into leaflets GPS system to see if It can be used in a map 
+        * I first found another tool called **maptiler** which is a tool that basically allows the user to create custom made maps(similar to that of leaflet.js) with the main difference being that there more intuitive for websites which wouldnt really help me as much 
+        * I did notice that there is also a way to include locations of users using IP adresses, 
+    * 
     
 
 <!-- 
