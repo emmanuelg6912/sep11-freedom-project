@@ -171,11 +171,46 @@
 
 
 ### LL2
-    * I decided to look more into leaflets GPS system to see if It can be used in a map 
-        * I first found another tool called **maptiler** which is a tool that basically allows the user to create custom made maps(similar to that of leaflet.js) with the main difference being that there more intuitive for websites which wouldnt really help me as much 
-        * I did notice that there is also a way to include locations of users using IP adresses, 
-    * 
-    
+    * I decided to focus today on tinkering more with the concepts ive learned on jsbin 
+        * I wanted to tinker more on the inclusion of polygons, markers and circles 
+        * I first added multiple coordinates that would create four different points. So I made four coordinates
+            ```js
+            const polygon = L.polygon([
+            [37.77, -122.43],
+            [37.77, -122.41],
+            [37.86, -122.40],
+            [37.87, -122.41], // you can add as many points as you choose 
+            ], {
+            color: "red ",
+            fillOpacity: 0.4
+            }).addTo(map); 
+            ```
+        * What I noticed is that every time I would add an extra coordinate(in this case I included the coordinate ``[37.87, -122.41]``) it would change the dimentsions of the polygon, turning it from a triangular shape to a quadrilateral. So basically I could include as many points as I could which may prove to be useful if im trying to include shaded regions.  
+        * With circles, it works the same but in this case, you can change the coordinates of the entire circle inside of the command called ``new circle`` which creates a new circle. The just included the given coordinates to state where you want the circle to be on the map. I also changed the fill opacity and fill color to see what it would do and saw that it changed the bolding and size of the circle shading, and the fill color just changed the color of the shading 
+            ```js
+            const circle = new Circle([51.508, -0.11], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(map);
+            ```
+        * Changing the fill opacity to 1 made the shading of the circle completely filled, increaseing radius increased the overall size of the circle, and changing the coordinates of the circle changed where the circle was. Another thing I learned is that you can also include popups in your code which is pretty beat
+            EX:
+            ```js
+            const circle = L.Circle([51.508, -0.11], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+            }).addTo(map);
+            circle.bindPopup("here is the circle") // when the user clicks on the circle the popup will say "here is the circle"
+            ```
+
+        * I then decided try and create a map marker that would locate itself specifically in a random location in new york
+            1. I changed the coordinates of maps set view first that way so that the map could view itself in new york. 
+            2. Then I decided to go on and include a marker 
+
 
 <!-- 
 * Links you used today (websites, videos, etc)
