@@ -209,7 +209,14 @@
 
         * I then decided try and create a map marker that would locate itself specifically in a random location in new york
             1. I changed the coordinates of maps set view first that way so that the map could view itself in new york. 
-            2. Then I decided to go on and include a marker 
+            2. Then I decided to include a marker located at the coordinate point ``[40.68, -74]`` which changed the marker to a place in new york 
+            3. Finally, I changed the coordinate of the map ``.setview`` to ``[40,68, -74]`` which changed the viewpoint of the map to only new york 
+        * After this tinkering, I realized that it was also possible to change the zoom in feature by just increasing the value after the .setview command which can prove to be helpful in the future 
+        * Im still unsure about how to make a gps system using only leaflet
+        * I might try and look up some youtube videos that focus on creating a working navigation system using leaflet only. 
+        * Link to tinkering [here](https://jsbin.com/ridowukate/edit?html,css,js,output)
+
+        * Today I started to dig more deeper into gps systems and how to make navigation systems using only javascript 
 
 
 <!-- 
