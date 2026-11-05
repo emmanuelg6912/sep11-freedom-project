@@ -217,6 +217,17 @@
         * Link to tinkering [here](https://jsbin.com/ridowukate/edit?html,css,js,output)
 
         * Today I started to dig more deeper into gps systems and how to make navigation systems using only javascript 
+        * I first came across a website called [opengeo](https://opengeo.tech/maps/leaflet-gps/) that had information on gps tracking in locations 
+            * I first decided to look at the source code and take a closer look on how the code functions
+                * [heres the link of the raw code](https://opengeo.tech/maps/leaflet-gps/src/leaflet-gps.js)
+            *  the conditional statements act as a plugin for leaflet.js which is usually defined by the object of ``L.``. This L exists as a way to define content such as maps, windows, etc... and in this case, the statement is stating if define is equal to ``function.L`` and is equal to define.amd(amd/asyncronus module definition which is a format for orgaizing modules), this will then pass it to the function ``factory``. 
+            * **Next** if ``module`` exists then it will load leaflet with ``factory(require("leaflet"))``, otherwise an error will occur using the global variable of ``window.L`` 
+            * Another thing to note is that leaflet has different settings that can be customized which 
+            * so I decided to test it out on jsbin to see if my location would be tracked. 
+                * [heres the link]()
+        * I noticed that when I changed the conditional of autoCenter to false, the 
+        * Im still a little confused on how to include the map before the inclusion of the GPS tracker because the gps tracker wont work in jsbin. Maybe I should be tinkering in a different website?
+                
 
 
 <!-- 
