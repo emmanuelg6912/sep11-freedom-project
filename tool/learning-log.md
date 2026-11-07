@@ -224,10 +224,39 @@
             * **Next** if ``module`` exists then it will load leaflet with ``factory(require("leaflet"))``, otherwise an error will occur using the global variable of ``window.L`` 
             * Another thing to note is that leaflet has different settings that can be customized which 
             * so I decided to test it out on jsbin to see if my location would be tracked. 
-                * [heres the link]()
-        * I noticed that when I changed the conditional of autoCenter to false, the 
         * Im still a little confused on how to include the map before the inclusion of the GPS tracker because the gps tracker wont work in jsbin. Maybe I should be tinkering in a different website?
-                
+        * I decided to use my IDE to try out using the location tracker to see if that would change anything 
+        * that also didnt work so I decided to look more into the actions for leaflet. 
+        * Leaflet has many different types of methods that also seem to be placed in different groups 
+        ```js
+        // maps 
+        L.map() //creates a map 
+        map.setview([lattitude,longitude], zoom) // selects starting position and zoom 
+        L.tileLayer("link here....png") //  sets up the background map(trees, streets, roads etc...)
+        // add to map 
+            L.polygon([lattitude, longitude], [lattitude, longitude] and so on...)// includes a polygon 
+           L.circle(lattitude, longitude) // includes a circle 
+            L.marker(lattitude, longitude)// includes a marker
+        // adding controls 
+            L.control.extend() //creates a new map control 
+            L.DomEvent.on() //response to clicks 
+            map.locate() //asks browser for location 
+            map.addLayer()/map.removeLayer() //adds or removes location marker
+        ```
+        * Since I already uses polygons, circles, and markers, I tinkered more with the inclusion of controls and maps 
+        * I first noticed that you can change the layout of the code in 2d dimensional form. So all of the code, instead of being in one whole line of code, it can be sectioned which may help with organization 
+        * I also included new actions such as ``zoom`` and set it to 12 ``minzoom`` was set to 3, and ``maxzoom was 19``. This meant that when I zoomed out the map it would only zoom out a set amount of times before it reached the value of 3 and the same vice versa. 
+        ```js
+        const map = L.map('map', {
+        center: [40.7, -74], //sets the position of the map 
+        zoom: 12, // sets the starting zoom 
+        minzoom:3, // sets the mininmum zoom 
+        maxzoom:19, //sets the maximum zoom
+        scrollwheelZoom: true // this will make it so that the user can use the scrollwheel to zoom in or out 
+        }); 
+        ```
+        * Im going to try to look more into API's and maybe research about their purpose and why there important 
+        * im still alittle confused on how to include controls for leaflet. I might try practicing more tomorrow if I have the time. 
 
 
 <!-- 
