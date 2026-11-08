@@ -258,6 +258,38 @@
         * Im going to try to look more into API's and maybe research about their purpose and why there important 
         * im still alittle confused on how to include controls for leaflet. I might try practicing more tomorrow if I have the time. 
 
+        * today I went more further into research about API's and maybe tinker with how to use them 
+        * I first looked into how API's work and I first found a website called [geeksforgeeks](https://www.geeksforgeeks.org/software-testing/what-is-an-api/) 
+            * API(Application programming Interface) allows for the requesting and sharing of data of different softwares and applications 
+            * this can be helpful because it allows for developers to acsess existing data and create apps more faster from scratch and their data can be used for different app implementations such as adding maps, weather apps, etc... 
+            * How this works is the client requests and API and that data request will go to the server in which the server will respond to the API and the API will respond back to the client which will either provide it with acsess or no.  
+            * there mainly consists four different types of API's 
+            1. Public API's: availible to users and developers 
+            2. Designed only for organizations 
+            3. partner API's: shared APIs to support buisness 
+            4. Composite API's: a combination of of different APIs into a single request 
+            * APIs can also be used in a variety of ways:
+            1. processing online payments 
+            2. sharing customer data 
+            3. integration of maps for mabile apps 
+            4. forcasting weather for apps 
+            5. authentication through signing in and varifying their identity 
+            6. social media acsess to permited data and features 
+        * After reading the documentation I wanted to look more into wheelchair accsessibility map APIs that may be availible to the public 
+        * I then found something on github called an Accessible Navigation App which isnt a fully fledged app but it works as a starter build for acsessible navigation. [heres the link](https://accessible-navigation-app.vercel.app/)
+            * Basically, how it works is that you type the origin place you currently are then type in the destination. After that, you will be given specific instructions on where to go and which turns to make in order to make it to your destination 
+                **PROS**
+                * the interface is given to developers which can prove to be useful for having a rough draft for websites 
+                * UI is easy to use and the process is quick 
+                * directions are specific and deatailed 
+                **CONS**
+                * Following the directions can take a long time 
+                * navigation can get confusing because of the countless amount of steps 
+                * the app is still WIP so theres still some features that need to be added 
+        * Im going to try and look more into the different folders of the app to see how it works 
+        * Im still not sure on how I would add this onto an app and im a little confused on how to even make an app on a mobile device   
+
+
 
 <!-- 
 * Links you used today (websites, videos, etc)
