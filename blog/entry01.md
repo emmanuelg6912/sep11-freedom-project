@@ -8,11 +8,17 @@ The tool that Ive been planning to use for this project is [leaflet.js.](https:/
 ### tinker 1
 Based on what I learned from the [basics leaflet documentation,]() I decided to tinker with the setup of the map and the inclusion of markers, polygons, and circles in jsbin.
 So I first set up the website by setting up a varible called ``const map = new LeafletMap('map').setView([51.505, -0.159], 15);```(sets up the map and the lattitude, longitude, and zoom values). 
-Then I included js 
+Then I included ``L.tilelayer()`` which creates open street view link so that the map image pops up. Then ending it with ``.addTo(map)`` which basically adds all the code to first variable that was created which is kind of like calling a function 
 
 ```js 
+const map = L.map('map').setView([10, -0.203], 13); 
 
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 ```
+
+I also decided to try and test out adding different shapes, markers, and implementation of polygons to see what it does. I first used ``L.marker`` which creates a marker, then like I did before, I included .addto(map) to set this up in the map variable that I made before. I also used .bindpopup() which creates a popup when the marker is loaded(Note: you also need to include ``.openPopup()`` to show the text.) I also changed the coordinate position inside of the markers 
 
 ### tinker 2 
 I Then focused more on the inclusion of mobile accessibility for [leaflets mobile app documentation]()
