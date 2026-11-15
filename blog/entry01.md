@@ -3,12 +3,12 @@
 
 ### Context
 In this project, I'm making an app that uses GPS navigation that changes its destination to specifically allow for more accessible routes for people with disabilities.
-The tool that I've been planning to use for this project is [leaflet.js.](https://leafletjs.com/) To get familiar with using leaflet, I tinkered with the inclusion of navigation components such as inclusion of markers, circles, and polygons. I also tinkered with changing coordinates of different locations, and lastly, I tinkered more with changing specific components of the map interface(zoom in, zoom out, scrollwheel use.). I also tinkered with leaflet using [jsbin](https://jsbin.com/?html,output) which is a website that has html, css, and javascript, for tinkering of websites
+The tool that I've been planning to use for this project is [leaflet.js.](https://leafletjs.com/) To get familiar with using leaflet, I tinkered with the inclusion of navigation components such as inclusion of markers, circles, and polygons. I also tinkered with changing coordinates of different locations, and lastly, I tinkered more with changing specific components of the map interface(zoom in, zoom out, scrollwheel use.). I also tinkered with leaflet using [jsbin](https://jsbin.com/?html,output) which is a website that has html, css, and javascript, for tinkering of websites.
 
 ### Tinker 1
 Based on what I learned from the [quick start leaflet documentation,](https://leafletjs.com/examples/quick-start/) I decided to tinker with the setup of the map and the inclusion of markers, polygons, and circles in jsbin.
 So I first set up the website by setting up a varible called ``const map = new LeafletMap('map').setView([51.505, -0.159], 15);```(sets up the map and the latitude, longitude, and zoom values).
-Then I included ``L.tilelayer()`` which creates an open street view link so that the map image pops up. Then ending it with ``.addTo(map)`` which basically adds all the code to first variable that was created which is kind of like calling a function
+Then I included ``L.tilelayer()`` which creates an open street view link so that the map image pops up. Then ending it with ``.addTo(map)`` which basically adds all the code to first variable that was created which is kind of like calling a function.
 
 ```js
 const map = L.map('map').setView([10, -0.203], 13);
