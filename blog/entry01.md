@@ -5,12 +5,10 @@
 In this project, I'm making an app that uses GPS navigation that changes its destination to specifically allow for more accessible routes for people with disabilities.
 The tool that I've been planning to use for this project is [leaflet.js.](https://leafletjs.com/) To get familiar with using leaflet, I tinkered with the inclusion of navigation components such as inclusion of markers, circles, and polygons. I also tinkered with changing coordinates of different locations, and lastly, I tinkered more with changing specific components of the map interface(zoom in, zoom out, scrollwheel use.). I also tinkered with leaflet using [jsbin](https://jsbin.com/?html,output) which is a website that has html, css, and javascript, for tinkering of websites
 
-
-### tinker 1
+### Tinker 1
 Based on what I learned from the [quick start leaflet documentation,](https://leafletjs.com/examples/quick-start/) I decided to tinker with the setup of the map and the inclusion of markers, polygons, and circles in jsbin.
 So I first set up the website by setting up a varible called ``const map = new LeafletMap('map').setView([51.505, -0.159], 15);```(sets up the map and the latitude, longitude, and zoom values).
 Then I included ``L.tilelayer()`` which creates an open street view link so that the map image pops up. Then ending it with ``.addTo(map)`` which basically adds all the code to first variable that was created which is kind of like calling a function
-
 
 ```js
 const map = L.map('map').setView([10, -0.203], 13);
@@ -22,7 +20,6 @@ const map = L.map('map').setView([10, -0.203], 13);
 
 I also decided to try and test out adding different shapes, markers, and implementation of polygons to see what it does. I first used ``L.marker`` which creates a marker, then like I did before, I included .addto(map) to set this up in the map variable that I made before. I also used .bindpopup() which creates a popup when the marker is loaded(Note: you also need to include ``.openPopup()`` to show the text.) I also changed the coordinate position inside of the markers to ``[-20,10]`` which is based on latitude and longitude positions.
 
-
 ```js
 L.marker([-20, -10]) // changing these given coordinates changed the position of the marker to the ocean
    .addTo(map)
@@ -30,9 +27,7 @@ L.marker([-20, -10]) // changing these given coordinates changed the position of
    .openPopup();
 ```
 
-
 Lastly, I included polygons, and circles to the map. This is first done by defining a variable which can be either circle or polygon, then using L.circle or L.polygon then including its latitude and longitude position. For circles you can include color changes, change the fill color of the circle, change the fill opacity, and change the radius of circles. For polygons, you can include as many positions as you want and color changes, opacity fill, and color fill can be added.
-
 
 ```js
 //circles
@@ -50,10 +45,8 @@ var polygon = L.polygon([
    ]).addTo(map);
 ```
 
-
-### tinker 2
+### Tinker 2
 I Then focused more on the inclusion of mobile accessibility for [leaflets mobile app documentation](https://leafletjs.com/examples/mobile/) which has the same steps as setting up the map with the only difference being that there are different sizings added and there's more of a focus on user detection. The body will have a margin of 0 and a padding of 0 for css and the html, body, and ``#map`` components will have a height of 100, and width of 100.
-
 
 ```css
 body {
@@ -67,6 +60,7 @@ html, body, #map {
 ```
 
 for html, you just need to add a ``<meta>`` element that shows a mobile browsers full size
+
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
 ```
@@ -89,7 +83,6 @@ function onLocationFound(e) {
    new Circle(e.latlng, {radius}).addTo(map);
 }
 
-
 map.on('locationfound', onLocationFound);
 ```
 
@@ -99,7 +92,6 @@ Creating a location error is also similar to this with the only difference being
 function onLocationError(e) {
    alert(e.message);
 }
-
 
 map.on('locationerror', onLocationError);
 ```
@@ -115,7 +107,7 @@ L.control.extend() //creates a new map control. Can be useful for adding new ite
    map.addLayer()/map.removeLayer() //adds or removes location marker. Can be useful for removing markers you may not need
 ```
 
-Using this knowledge, I decided to test out the different map controls on jsbin. I used`center`` which just defines where the map will be viewed at. Then I also included zoom which sets the starting zoom, then I used ``minZoom``  which sets the minimum zoom, and I used ``maxZoom`` to set the maximum zoom. Finally, I made sure to include ``scrollWheelZoom`` and set it to true that way so that the user can scroll freely. 
+Using this knowledge, I decided to test out the different map controls on jsbin. I used ``center`` which just defines where the map will be viewed at. Then I also included zoom which sets the starting zoom, then I used ``minZoom``  which sets the minimum zoom, and I used ``maxZoom`` to set the maximum zoom. Finally, I made sure to include ``scrollWheelZoom`` and set it to true that way so that the user can scroll freely. 
 
 ```js
 const map = L.map('map', {
