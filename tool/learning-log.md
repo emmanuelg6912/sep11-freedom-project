@@ -103,7 +103,7 @@
         map.locate({setView: true, maxZoom: 16}); 
 
         code for javascript:
-        function onLocationFound(e) {
+        function onLocationFound(e) { // this determines where the user location will be 
         var radius = e.accuracy;
 
         L.marker(e.latlng).addTo(map)
@@ -112,7 +112,7 @@
         L.circle(e.latlng, radius).addTo(map);
         }
 
-        function onLocationError(e) { // this will give an error message to the user
+        function onLocationError(e) { // this will give an error message to the user if the location cannot be found 
         alert(e.message);
         }
 
@@ -170,7 +170,7 @@
     * Im going to try and learn more about using local API's and how I would implement one from new york
 
 
-### LL2
+## LL2
     * I decided to focus today on tinkering more with the concepts ive learned on jsbin 
         * I wanted to tinker more on the inclusion of polygons, markers and circles 
         * I first added multiple coordinates that would create four different points. So I made four coordinates
@@ -246,6 +246,7 @@
         * Since I already uses polygons, circles, and markers, I tinkered more with the inclusion of controls and maps 
         * I first noticed that you can change the layout of the code in 2d dimensional form. So all of the code, instead of being in one whole line of code, it can be sectioned which may help with organization 
         * I also included new actions such as ``zoom`` and set it to 12 ``minzoom`` was set to 3, and ``maxzoom was 19``. This meant that when I zoomed out the map it would only zoom out a set amount of times before it reached the value of 3 and the same vice versa. 
+        
         ```js
         const map = L.map('map', {
         center: [40.7, -74], //sets the position of the map 
@@ -289,6 +290,10 @@
         * Im going to try and look more into the different folders of the app to see how it works 
         * Im still not sure on how I would add this onto an app and im a little confused on how to even make an app on a mobile device   
 
+    ## LL3 
+        * I decided to keep looking into the code about GPS tracking so I forked a repository that I looked at my second learning log called [leaflet-gps]() which has a starter package for creating a location tracker button. 
+            * I first looked into the next 
+        *  
 
 
 <!-- 
