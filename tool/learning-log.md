@@ -292,8 +292,23 @@
 
     ## LL3 
         * I decided to keep looking into the code about GPS tracking so I forked a repository that I looked at my second learning log called [leaflet-gps]() which has a starter package for creating a location tracker button. 
-            * I first looked into the next 
-        *  
+            * I first looked into the next set of code for the GPS tracker to learn more about how the code works 
+        * I noticed that theres an ``option`` function which basically works like a setting feature for leaflet. It basically lets you turn off or on different settings on leaflet by including a true or false statement. The rest of the code is css. 
+        * for most of the code, its mainly just code thats meant for creating the GPS that checks when the location button is clicked on. If this is true, then it searches for the users location and sends the map to where they last were. If the user location cannot be found, then the user will be given an error stating that the location is not defined. 
+        * now that I understood how the lines of code worked. I focused more on looking into what each command in leaflet does in the code. 
+        * I did a quick google search on the different commands in leaflet and I found a website called [yourdevkit](https://yourdevkit.com/cheat-sheet/leaflet) which basically functions as a little cheat sheet that helps with creating different parts in leaflet such as buttons, setting up maps, navigation, geolocation, adding controls,  using plugins, JSON etc... 
+        Heres what I learned:
+        ```js
+        // using GEOJSON Layers
+           var geojsonLayer = L.geoJSON // creates a GeoJSON(set of map features) layer
+                                        // customize GeoJSON styling, basically changing the map features
+
+        // Handling events 
+            marker.on 
+
+        ```
+
+
 
 
 <!-- 
