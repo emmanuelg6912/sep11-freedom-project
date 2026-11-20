@@ -297,17 +297,34 @@
         * for most of the code, its mainly just code thats meant for creating the GPS that checks when the location button is clicked on. If this is true, then it searches for the users location and sends the map to where they last were. If the user location cannot be found, then the user will be given an error stating that the location is not defined. 
         * now that I understood how the lines of code worked. I focused more on looking into what each command in leaflet does in the code. 
         * I did a quick google search on the different commands in leaflet and I found a website called [yourdevkit](https://yourdevkit.com/cheat-sheet/leaflet) which basically functions as a little cheat sheet that helps with creating different parts in leaflet such as buttons, setting up maps, navigation, geolocation, adding controls,  using plugins, JSON etc... 
-        Heres what I learned:
+        Heres the new things that I learned: 
         ```js
         // using GEOJSON Layers
            var geojsonLayer = L.geoJSON // creates a GeoJSON(set of map features) layer
-                                        // customize GeoJSON styling, basically changing the map features
+            `layerGroup.addLayer(marker) // adds a layer to the given layer group
+
+            `var customStyle = function(feature) { return {color: 'red', weight: 2}; };` // customize GeoJSON styling
+
+             `L.geoJSON(data, {style: customStyle}).addTo(map);`// applies custom styling to the GEOJSON map 
 
         // Handling events 
-            marker.on 
+        `marker.on('click', function() { console.log('Marker clicked'); });` // creates an event listener that checks when a marker has been clicked on 
+
+        `map.on('zoomend', function() { console.log('Map zoomed'); });` // creates an event listener for the map the checks when the map has been clicked on. 
+
+        // including plugins 
 
         ```
 
+        * After this, I decided to make a website that uses the topics that I learned about from leaflet to create a website that has a map covering the entire screen and including a button that makes it so that when the user clicks on the given button, their location will be tracked. If I have the time, I might try also including a GPS system if I get the time. 
+
+        1. I first did the same steps that I first did by creating a defined variable called ``map`` then using ``L.map(`map`)`` then changing the positioning to new york using the ``.setview`` which changes the coordinate and the zoom in amount when the map is opened. 
+
+        2. Then I used ``L.tilelayer`` to include the link to the given streetmap provided by leaflet but I decided to add the marker after I included the button tracker
+
+        3. Next I added the link for leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire map. 
+
+        4. 
 
 
 
