@@ -335,8 +335,10 @@
 
             5. Finally I included an error message to make sure that if the user location is not found, then an error will show up stating that the location is not defined
 
+        * unfortunately I ended up running into a problem while trying to load everything up. The map didnt pop up in the website. So I did a search as to why my code was doing this and it was because addition of a map used ``LeafletMap`` to create the map location and I also added tileLayer. But with leaflets newest version, you must include ``L.map`` in order to allow for the command to work. The same rule applies for adding tile layers and every other addition.  
+
         * I want to try making a more simpler system that does not require a button and just takes the user to their location right away and include a GPS system when I get the time 
-        
+
 
 
 <!-- 
