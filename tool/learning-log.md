@@ -313,6 +313,7 @@
         `map.on('zoomend', function() { console.log('Map zoomed'); });` // creates an event listener for the map the checks when the map has been clicked on. 
 
         // including plugins 
+        
 
         ```
 
