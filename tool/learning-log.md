@@ -325,18 +325,18 @@
 
         * After this, I decided to make a website that uses the topics that I learned about from leaflet to create a website that has a map covering the entire screen and including a button that makes it so that when the user clicks on the given button, their location will be tracked. If I have the time, I might try also including a GPS system if I get the time. 
 
-        1. I first did the same steps that I first did by creating a defined variable called ``map`` then using ``L.map(`map`)`` then changing the positioning to new york using the ``.setview`` which changes the coordinate and the zoom in amount when the map is opened. 
+            1. I first did the same steps that I first did by creating a defined variable called ``map`` then using ``L.map(`map`)`` then changing the positioning to new york using the ``.setview`` which changes the coordinate and the zoom in amount when the map is opened. 
 
-        2. Then I used ``L.tilelayer`` to include the link to the given streetmap provided by leaflet but I decided to add the marker after I included the button tracker
+            2. Then I used ``L.tilelayer`` to include the link to the given streetmap provided by leaflet but I decided to add the marker after I included the button tracker
 
-        3. Next I added the link for leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire map. 
+            3. Next I added the link for leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire map. 
 
-        4. After that. I used the leaflet-gps example from my last learning log to first create a button, creating an event listener that checks when the user clicks on the button. If this is true, then when the button is pressed, it will take the user to their location. 
+            4. After that. I used the leaflet-gps example from my last learning log to first create a button, creating an event listener that checks when the user clicks on the button. If this is true, then when the button is pressed, it will take the user to their location. 
 
-        5. Finally I included an error message to make sure that if the user location is not found, then an error will show up stating that the location is not defined
+            5. Finally I included an error message to make sure that if the user location is not found, then an error will show up stating that the location is not defined
 
+        * I want to try making a more simpler system that does not require a button and just takes the user to their location right away and include a GPS system when I get the time 
         
-
 
 
 <!-- 
