@@ -325,7 +325,7 @@
 
         3. Next I added the link for leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire map. 
 
-        4. 
+        4. After that. I used the leaflet-gps example from my last learning log to first create a button that 
 
         
 
