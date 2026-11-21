@@ -300,6 +300,7 @@
         Heres the new things that I learned: 
         ```js
         // using GEOJSON Layers
+
            var geojsonLayer = L.geoJSON // creates a GeoJSON(set of map features) layer
             `layerGroup.addLayer(marker) // adds a layer to the given layer group
 
@@ -308,13 +309,18 @@
              `L.geoJSON(data, {style: customStyle}).addTo(map);`// applies custom styling to the GEOJSON map 
 
         // Handling events 
+
         `marker.on('click', function() { console.log('Marker clicked'); });` // creates an event listener that checks when a marker has been clicked on 
 
         `map.on('zoomend', function() { console.log('Map zoomed'); });` // creates an event listener for the map the checks when the map has been clicked on. 
 
         // including plugins 
-        
 
+        `npm install leaflet-plugin-name` // installs a plugin using npm 
+
+        `import 'leaflet-plugin-name';` // imports a leaflet plugin 
+
+        `L.pluginName().addTo(map);` // implements the plugin to your code
         ```
 
         * After this, I decided to make a website that uses the topics that I learned about from leaflet to create a website that has a map covering the entire screen and including a button that makes it so that when the user clicks on the given button, their location will be tracked. If I have the time, I might try also including a GPS system if I get the time. 
@@ -325,7 +331,9 @@
 
         3. Next I added the link for leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire map. 
 
-        4. After that. I used the leaflet-gps example from my last learning log to first create a button that 
+        4. After that. I used the leaflet-gps example from my last learning log to first create a button, creating an event listener that checks when the user clicks on the button. If this is true, then when the button is pressed, it will take the user to their location. 
+
+        5. Finally I included an error message to make sure that if the user location is not found, then an error will show up stating that the location is not defined
 
         
 
