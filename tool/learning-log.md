@@ -9,344 +9,368 @@
 ## LL1
 
 ### 10/19/26-10/23/26
-* started browsing on leaflet 
-    * started looking at the quick start guide for leaflet 
-        *  to start using leaflet, copy and paste the given css file link and include a javascript file AFTER leaflet css
-        *  Then, create a id where you want your given map to be 
-        * make sure to include a defined height in a css file 
-    * I first tinkered with the setup process to see if it would work 
-    * then I decided to tinker with the different coordinate locations 
-        EX:
-        ```js
-        const map = L.map('map').setView([10, -0.203], 13); //Im still not sure what this does 
+* started browsing on leaflet
+   * started looking at the quick start guide for leaflet
+       *  to start using leaflet, copy and paste the given css file link and include a javascript file AFTER leaflet css
+       *  Then, create an id where you want your given map to be
+       * make sure to include a defined height in a css file
+   * I first tinkered with the setup process to see if it would work
+   * then I decided to tinker with the different coordinate locations
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+       EX:
+       ```js
+       const map = L.map('map').setView([10, -0.203], 13); //Im still not sure what this does
 
-        L.marker([-20, -10]) // changing these given coordinates changed the position of the marker to the ocean!
-        .addTo(map)
-        .bindPopup('you are currently here')
-        .openPopup();
-        ```
-    * based off of this, leaflet uses a different coordinate system with maps which may be confusing to understand 
-* Although my tool works for customizing maps and makes the whole process of making a map more easier, I still need a tool that could help with APIS and GPS features 
-* Im going to try to tinker more with the different pins and also customizable markers that are in leaflet and research more on tools that use GPS for people with disabilities. 
+       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       attribution: '&copy; OpenStreetMap contributors'
+       }).addTo(map);
 
+       L.marker([-20, -10]) // changing these given coordinates changed the position of the marker to the ocean!
+       .addTo(map)
+       .bindPopup('you are currently here')
+       .openPopup();
+       ```
 
-* started testing out different pins and customizable marker 
-    * theres many different shapes you can add such as triangles, circles, polygons, and you can customize their color, opacity, and radius for circles 
-    EX:
-    ```js 
-    //circle example 
-    var circle = L.circle([51.508, -0.11], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 500
-    }).addTo(map);
+   * based off of this, leaflet uses a different coordinate system with maps which may be confusing to understand
+* Although my tool works for customizing maps and makes the whole process of making a map more easier, I still need a tool that could help with APIS and GPS features
+* I'm going to try to tinker more with the different pins and also customizable markers that are in the leaflet and research more on tools that use GPS for people with disabilities.
 
-    //polygon/triangle example 
-    var polygon = L.polygon([
-    [51.509, -0.08], // this represents the first point 
-    [51.503, -0.06], // second point 
-    [51.51, -0.047] //third point and so on... 
-    ]).addTo(map);
+* started testing out different pins and customizable marker
+   * there's many different shapes you can add such as triangles, circles, polygons, and you can customize their color, opacity, and radius for circles
+   EX:
+   ```js
+   //circle example
+   var circle = L.circle([51.508, -0.11], {
+   color: 'red',
+   fillColor: '#f03',
+   fillOpacity: 0.5,
+   radius: 500
+   }).addTo(map);
 
-    //marker evample
-    var marker = L.marker([51.5, -0.09]).addTo(map);
-    ```
-* I noticed that you can also create popups that when the user clicks on a specific part of the map the alert states their given coordinate 
-    EX:
+   //polygon/triangle example
+   var polygon = L.polygon([
+   [51.509, -0.08], // this represents the first point
+   [51.503, -0.06], // second point
+   [51.51, -0.047] //third point and so on...
+   ]).addTo(map);
 
-    ```js
-    var popup = L.popup();
+   //marker example
+   var marker = L.marker([51.5, -0.09]).addTo(map);
+   ```
 
-        function onMapClick(e) {
-        popup
-            .setLatLng(e.latlng) 
-            .setContent("You clicked the map at " + e.latlng.toString()) // this is the text that will be shown in the alert
-            .openOn(map); // this action will open the alert on the map 
-        }
-        map.on('click', onMapClick); // map.on is allowing for the function to be called 
-    ```
+* I noticed that you can also create popups that when the user clicks on a specific part of the map the alert states their given coordinate
+   EX:
 
-* I tinkered more with the shapes and realized that with polygons, you can change its shape to whatever position of your choice. This can allow for the creation of even more shapes like squares, rectangles, octagons, pentagons etc... 
-* im still unsure as to what the different commands and actions inside of the functions do so I may need to research more about how these commands may work 
-* Im going to learn how to implement these concepts into a mobile device if possible 
+   ```js
+   var popup = L.popup();
 
 
-* I started looking into the [leaflet on Mobile](https://leafletjs.com/examples/mobile/) tutorial 
-    * to first set up the mobile positioning, you need to use specific css code 
-        EX:
-        ```js
-        body {
-        padding: 0;
-        margin: 0;
-        }
-        html, body, #map {
-        height: 100%;
-        width: 100vw; // note: its recommended to use vh for websites such as google chrome
-        }
-        ```
-    * then you must place a line of code in the head of an html page which allows for the height of a given change to have a defined height and not its default 
-        EX:
-        ```html
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
-        ```
+      function onMapClick(e) {
+      popup
+          .setLatLng(e.latlng)
+          .setContent("You clicked the map at " + e.latlng.toString()) // this is the text that will be shown in the alert
+          .openOn(map); // this action will open the alert on the map
+      }
+      map.on('click', onMapClick); // map.on is allowing for the function to be called
+   ```
 
-    * to allow for detection of user location, **geolocation** must be used to determine someones location which is done in javascript using the ``.locate`` and ``setview`` javascript methods 
-    * Although you only need to add this, you can also include markers to allow for more detail. In the document example, a function is created that uses the radius to determine how far in a specific amount of meters that you would be away from your house and ends it off with an error message just in case the location cannot be determined 
-        EX:
-        ```js
-        code for head of html:
-        map.locate({setView: true, maxZoom: 16}); 
+* I tinkered more with the shapes and realized that with polygons, you can change its shape to whatever position of your choice. This can allow for the creation of even more shapes like squares, rectangles, octagons, pentagons etc...
+* im still unsure as to what the different commands and actions inside of the functions do so I may need to research more about how these commands may work
+* I'm going to learn how to implement these concepts into a mobile device if possible
 
-        code for javascript:
-        function onLocationFound(e) { // this determines where the user location will be 
-        var radius = e.accuracy;
+* I started looking into the [leaflet on Mobile](https://leafletjs.com/examples/mobile/) tutorial
+   * to first set up the mobile positioning, you need to use specific css code
 
-        L.marker(e.latlng).addTo(map)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+       EX:
+       ```js
+       body {
+       padding: 0;
+       margin: 0;
+       }
+       html, body, #map {
+       height: 100%;
+       width: 100vw; // note: its recommended to use vh for websites such as google chrome
+       }
+       ```
 
-        L.circle(e.latlng, radius).addTo(map);
-        }
+   * then you must place a line of code in the head of an html page which allows for the height of a given change to have a defined height and not its default
 
-        function onLocationError(e) { // this will give an error message to the user if the location cannot be found 
-        alert(e.message);
-        }
+       EX:
+       ```html
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+       ```
 
-        map.on('locationerror', onLocationError);
+   * to allow for detection of user location, **geolocation** must be used to determine someone's location which is done in javascript using the ``.locate`` and ``setview`` javascript methods
+   * Although you only need to add this, you can also include markers to allow for more detail. In the document example, a function is created that uses the radius to determine how far in a specific amount of meters that you would be away from your house and ends it off with an error message just in case the location cannot be determined
+       EX:
+       ```js
+       code for head of html:
+       map.locate({setView: true, maxZoom: 16});
 
-        map.on('locationfound', onLocationFound);
-        ```
-    * I need to research more on the coordinate system for leaflet because I dont seem to understand how the positioning of markers work and how to overall change coordinates to corespond to a specific area. 
-    * Im going to try and look more into accsessible maps for leaflet and see how they may function while also researching more on map coordinates 
+       code for javascript:
+       function onLocationFound(e) { // this determines where the user location will be
+       var radius = e.accuracy;
+
+       L.marker(e.latlng).addTo(map)
+       .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+       L.circle(e.latlng, radius).addTo(map);
+       }
+
+       function onLocationError(e) { // this will give an error message to the user if the location cannot be found
+       alert(e.message);
+       }
+
+       map.on('locationerror', onLocationError);
+
+       map.on('locationfound', onLocationFound);
+       ```
+   * I need to research more on the coordinate system for leaflets because I don't seem to understand how the positioning of markers work and how to overall change coordinates to correspond to a specific area.
+   * I'm going to try and look more into accessible maps for leaflet and see how they may function while also researching more on map coordinates
+
+   * I researched more into ([basic leaflet accessibility](https://leafletjs.com/examples/accessibility/))
+       * Leaflet has accessible maps that don't require the use of using a mouse to access different part of a map
+       * This can be done in two ways
+           1. including labeled markers for user location
+               EX:
+               ```js
+               var marker = L.marker([50.4501, 30.5234],
+               {alt: 'Kyiv'}).addTo(map) // "Kyiv" is the accessible name of this marker
+               .bindPopup('Kyiv, Ukraine is the birthplace of Leaflet!');
+               ```
+           2. having decorative maps that don't need to be zoomed in or zoom out
+               EX:
+               ```js
+               <div id='decorative-map' inert></div>
+               <script src='https://unpkg.com/wicg-inert@latest/dist/inert.min.js'></script>
+               ```
+           3. testing out maps
+           4. trying out different plugins
+   * I then looked into how leaflets coordinate system worked
+       * leaflet uses something called a **Spatial reference system**/**coordinate reference system** or short for CRF
+       * CRF coordinate systems use the distance of pixels from a screen whether it would be a phone to a computer 
+       * coordinate systems in leaflet work as ``[y,x]`` coordinates/``lat lng``
+           EX: [15,60] = indian ocean, [40.7, -74] = new york
+        
+   * I decided to try out a bunch of different coordinate positions to see what would happen
+   * I'm not really sure how to precisely locate these positions.
+   * I'm going to try to look more into the different types of leaflet commands and how they work
+
 
   
+   * I decided to look more into how to properly locate coordinates using the CRF coordinate system
+   * I found a article from a organization called [QGIS](https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/coordinate_reference_systems.html)
+       * Basically, how it works is that maps are put into map projections which are when maps change from 3d to 2d.
+       * sometimes map projection can also apply for globes but it's more difficult
+       * map projections will usually look like a circular graph which what ends of allowing for the creation of more accurate graphs
+           This is what a map projection looks like
+           ![alt text](image.png)
+       * Although the process is difficult, there are usually projection map references that give the coordinate positionings which is what I might try to use
+       * There is also another important factor that should be applied with projection maps and that is angles.
+       * projection maps have two different sections of angles. One being lines of latitude which are divided to 180 degree sections while lines of longitude only are divided into 60 degree sections
+       * Another useful tool that helps with coordinates is a **Universal Transverse Mercator/UTM**
+       * they have the same angles of 60 degrees but in equal sections of 6 degrees and longitude sections being at 180 degrees, with the only difference being that y values will increase from the south and x values increase from the west
+   * I want to see if there's any more references to these maps that can make looking for these coordinates more easier
+   * I'm going to try and learn more about using local APIs and how I would implement one from new york
 
-    * I researched more into ([basic leaflet accessibility](https://leafletjs.com/examples/accessibility/))
-        * Leaflet has accessible maps that dont require the use of using a mouse to access different part of a map 
-        * This can be done in two ways 
-            1. including labeled markers for user location 
-                EX:
-                ```js
-                var marker = L.marker([50.4501, 30.5234],
-                {alt: 'Kyiv'}).addTo(map) // "Kyiv" is the accessible name of this marker
-                .bindPopup('Kyiv, Ukraine is the birthplace of Leaflet!');
-                ```
-            2. having decorative maps that dont need to be zoomed in or zoom out 
-                EX:
-                ```js
-                <div id='decorative-map' inert></div>
-                <script src='https://unpkg.com/wicg-inert@latest/dist/inert.min.js'></script>
-                ```
-            3. testing out maps 
-            4. trying out different plugins 
-    * I then looked into how leaflets coordinate system worked 
-        * leaflet uses something called a **Spatial refrence system**/**coordinate refrence system** or short for CRF
-        * CRF coordinate systems use the distance of pixels from a screen whether it would be a phone to a computer  
-        * coordinate systems in leaflet work as ``[y,x]`` coordinates/``lat lng`` 
-            EX: [15,60] = indian ocean, [40.7, -74] = new york
-          
-    * I decided to try out a bunch of different coordinate positions to see what would happen
-    * Im not really sure how to precisely locate these positions.
-    * Im going to try to look more into the different types of leaflet commands and how they work
 
-    
-    * I decided to look more into how to properly locate coordinates using the CRF coordinate system 
-    * I found a article from a organization called [QGIS](https://docs.qgis.org/3.44/en/docs/gentle_gis_introduction/coordinate_reference_systems.html)
-        * Basically, how it works is that maps are put into map projections which are when maps change from 3d to 2d. 
-        * sometimes map projection can also apply for globes but its more diffucult 
-        * map projections will usually look like a circular graph which what ends of allowing for the creation of more accurate graphs
-            This is what a map projection looks like 
-            ![alt text](image.png)
-        * Although the process is difficult, there are usually projection map refrences that give the coordinate positionings which is what I might try to use 
-        * There is also another important factor that should be applied with projection maps and that is angles. 
-        * projection maps have two different sections of angles. One being lines of lattitude which are divided to 180 degree sections while lines of longitude only are divided into 60 degree sections 
-        * Another useful tool that helps with coordinates is a **Universal Transverse Mercator/UTM**
-        * they have the same angles of 60 degrees but in equal sections of 6 degrees and longitude sections being at 180 degrees, with the only difference being that y values will increase from the south and x values increase from the west 
-    * I want to see if theres any more refrences to these maps that can make looking for these coordinates more easier 
-    * Im going to try and learn more about using local API's and how I would implement one from new york
 
 
 ## LL2
-    * I decided to focus today on tinkering more with the concepts ive learned on jsbin 
-        * I wanted to tinker more on the inclusion of polygons, markers and circles 
-        * I first added multiple coordinates that would create four different points. So I made four coordinates
-            ```js
-            const polygon = L.polygon([
-            [37.77, -122.43],
-            [37.77, -122.41],
-            [37.86, -122.40],
-            [37.87, -122.41], // you can add as many points as you choose 
-            ], {
-            color: "red ",
-            fillOpacity: 0.4
-            }).addTo(map); 
-            ```
-        * What I noticed is that every time I would add an extra coordinate(in this case I included the coordinate ``[37.87, -122.41]``) it would change the dimentsions of the polygon, turning it from a triangular shape to a quadrilateral. So basically I could include as many points as I could which may prove to be useful if im trying to include shaded regions.  
-        * With circles, it works the same but in this case, you can change the coordinates of the entire circle inside of the command called ``new circle`` which creates a new circle. The just included the given coordinates to state where you want the circle to be on the map. I also changed the fill opacity and fill color to see what it would do and saw that it changed the bolding and size of the circle shading, and the fill color just changed the color of the shading 
-            ```js
-            const circle = new Circle([51.508, -0.11], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.5,
-            radius: 500
-        }).addTo(map);
-            ```
-        * Changing the fill opacity to 1 made the shading of the circle completely filled, increaseing radius increased the overall size of the circle, and changing the coordinates of the circle changed where the circle was. Another thing I learned is that you can also include popups in your code which is pretty beat
-            EX:
-            ```js
-            const circle = L.Circle([51.508, -0.11], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.5,
-            radius: 500
-            }).addTo(map);
-            circle.bindPopup("here is the circle") // when the user clicks on the circle the popup will say "here is the circle"
-            ```
+   * I decided to focus today on tinkering more with the concepts ive learned on jsbin
+       * I wanted to tinker more on the inclusion of polygons, markers and circles
+       * I first added multiple coordinates that would create four different points. So I made four coordinates
+           ```js
+           const polygon = L.polygon([
+           [37.77, -122.43],
+           [37.77, -122.41],
+           [37.86, -122.40],
+           [37.87, -122.41], // you can add as many points as you choose
+           ], {
+           color: "red ",
+           fillOpacity: 0.4
+           }).addTo(map);
+           ```
+       * What I noticed is that every time I would add an extra coordinate(in this case I included the coordinate ``[37.87, -122.41]``) it would change the dimensions of the polygon, turning it from a triangular shape to a quadrilateral. So basically I could include as many points as I could which may prove to be useful if I'm trying to include shaded regions. 
+       * With circles, it works the same but in this case, you can change the coordinates of the entire circle inside of the command called ``new circle`` which creates a new circle. They just included the given coordinates to state where you want the circle to be on the map. I also changed the fill opacity and fill color to see what it would do and saw that it changed the bolding and size of the circle shading, and the fill color just changed the color of the shading
+           ```js
+           const circle = new Circle([51.508, -0.11], {
+           color: 'red',
+           fillColor: '#f03',
+           fillOpacity: 0.5,
+           radius: 500
+       }).addTo(map);
+           ```
+       * Changing the fill opacity to 1 made the shading of the circle completely filled, increasing radius increased the overall size of the circle, and changing the coordinates of the circle changed where the circle was. Another thing I learned is that you can also include popups in your code which is pretty beat
+           EX:
+           ```js
+           const circle = L.Circle([51.508, -0.11], {
+           color: 'red',
+           fillColor: '#f03',
+           fillOpacity: 0.5,
+           radius: 500
+           }).addTo(map);
+           circle.bindPopup("here is the circle") // when the user clicks on the circle the popup will say "here is the circle"
+           ```
 
-        * I then decided try and create a map marker that would locate itself specifically in a random location in new york
-            1. I changed the coordinates of maps set view first that way so that the map could view itself in new york. 
-            2. Then I decided to include a marker located at the coordinate point ``[40.68, -74]`` which changed the marker to a place in new york 
-            3. Finally, I changed the coordinate of the map ``.setview`` to ``[40,68, -74]`` which changed the viewpoint of the map to only new york 
-        * After this tinkering, I realized that it was also possible to change the zoom in feature by just increasing the value after the .setview command which can prove to be helpful in the future 
-        * Im still unsure about how to make a gps system using only leaflet
-        * I might try and look up some youtube videos that focus on creating a working navigation system using leaflet only. 
-        * Link to tinkering [here](https://jsbin.com/ridowukate/edit?html,css,js,output)
+       * I then decided try and create a map marker that would locate itself specifically in a random location in new york
+           1. I changed the coordinates of the map set view first that way so that the map could view itself in New York.
+           2. Then I decided to include a marker located at the coordinate point ``[40.68, -74]`` which changed the marker to a place in new york
+           3. Finally, I changed the coordinate of the map ``.setview`` to ``[40,68, -74]`` which changed the viewpoint of the map to only new york
+       * After this tinkering, I realized that it was also possible to change the zoom in feature by just increasing the value after the .setview command which can prove to be helpful in the future
+       * Im still unsure about how to make a gps system using only leaflet
+       * I might try and look up some youtube videos that focus on creating a working navigation system using leaflet only.
+       * Link to tinkering [here](https://jsbin.com/ridowukate/edit?html,css,js,output)
 
-        * Today I started to dig more deeper into gps systems and how to make navigation systems using only javascript 
-        * I first came across a website called [opengeo](https://opengeo.tech/maps/leaflet-gps/) that had information on gps tracking in locations 
-            * I first decided to look at the source code and take a closer look on how the code functions
-                * [heres the link of the raw code](https://opengeo.tech/maps/leaflet-gps/src/leaflet-gps.js)
-            *  the conditional statements act as a plugin for leaflet.js which is usually defined by the object of ``L.``. This L exists as a way to define content such as maps, windows, etc... and in this case, the statement is stating if define is equal to ``function.L`` and is equal to define.amd(amd/asyncronus module definition which is a format for orgaizing modules), this will then pass it to the function ``factory``. 
-            * **Next** if ``module`` exists then it will load leaflet with ``factory(require("leaflet"))``, otherwise an error will occur using the global variable of ``window.L`` 
-            * Another thing to note is that leaflet has different settings that can be customized which 
-            * so I decided to test it out on jsbin to see if my location would be tracked. 
-        * Im still a little confused on how to include the map before the inclusion of the GPS tracker because the gps tracker wont work in jsbin. Maybe I should be tinkering in a different website?
-        * I decided to use my IDE to try out using the location tracker to see if that would change anything 
-        * that also didnt work so I decided to look more into the actions for leaflet. 
-        * Leaflet has many different types of methods that also seem to be placed in different groups 
-        ```js
-        // maps 
-        L.map() //creates a map 
-        map.setview([lattitude,longitude], zoom) // selects starting position and zoom 
-        L.tileLayer("link here....png") //  sets up the background map(trees, streets, roads etc...)
-        // add to map 
-            L.polygon([lattitude, longitude], [lattitude, longitude] and so on...)// includes a polygon 
-           L.circle(lattitude, longitude) // includes a circle 
-            L.marker(lattitude, longitude)// includes a marker
-        // adding controls 
-            L.control.extend() //creates a new map control 
-            L.DomEvent.on() //response to clicks 
-            map.locate() //asks browser for location 
-            map.addLayer()/map.removeLayer() //adds or removes location marker
-        ```
-        * Since I already uses polygons, circles, and markers, I tinkered more with the inclusion of controls and maps 
-        * I first noticed that you can change the layout of the code in 2d dimensional form. So all of the code, instead of being in one whole line of code, it can be sectioned which may help with organization 
-        * I also included new actions such as ``zoom`` and set it to 12 ``minzoom`` was set to 3, and ``maxzoom was 19``. This meant that when I zoomed out the map it would only zoom out a set amount of times before it reached the value of 3 and the same vice versa. 
-        
-        ```js
-        const map = L.map('map', {
-        center: [40.7, -74], //sets the position of the map 
-        zoom: 12, // sets the starting zoom 
-        minzoom:3, // sets the mininmum zoom 
-        maxzoom:19, //sets the maximum zoom
-        scrollwheelZoom: true // this will make it so that the user can use the scrollwheel to zoom in or out 
-        }); 
-        ```
-        * Im going to try to look more into API's and maybe research about their purpose and why there important 
-        * im still alittle confused on how to include controls for leaflet. I might try practicing more tomorrow if I have the time. 
 
-        * today I went more further into research about API's and maybe tinker with how to use them 
-        * I first looked into how API's work and I first found a website called [geeksforgeeks](https://www.geeksforgeeks.org/software-testing/what-is-an-api/) 
-            * API(Application programming Interface) allows for the requesting and sharing of data of different softwares and applications 
-            * this can be helpful because it allows for developers to acsess existing data and create apps more faster from scratch and their data can be used for different app implementations such as adding maps, weather apps, etc... 
-            * How this works is the client requests and API and that data request will go to the server in which the server will respond to the API and the API will respond back to the client which will either provide it with acsess or no.  
-            * there mainly consists four different types of API's 
-            1. Public API's: availible to users and developers 
-            2. Designed only for organizations 
-            3. partner API's: shared APIs to support buisness 
-            4. Composite API's: a combination of of different APIs into a single request 
-            * APIs can also be used in a variety of ways:
-            1. processing online payments 
-            2. sharing customer data 
-            3. integration of maps for mabile apps 
-            4. forcasting weather for apps 
-            5. authentication through signing in and varifying their identity 
-            6. social media acsess to permited data and features 
-        * After reading the documentation I wanted to look more into wheelchair accsessibility map APIs that may be availible to the public 
-        * I then found something on github called an Accessible Navigation App which isnt a fully fledged app but it works as a starter build for acsessible navigation. [heres the link](https://accessible-navigation-app.vercel.app/)
-            * Basically, how it works is that you type the origin place you currently are then type in the destination. After that, you will be given specific instructions on where to go and which turns to make in order to make it to your destination 
-                **PROS**
-                * the interface is given to developers which can prove to be useful for having a rough draft for websites 
-                * UI is easy to use and the process is quick 
-                * directions are specific and deatailed 
-                **CONS**
-                * Following the directions can take a long time 
-                * navigation can get confusing because of the countless amount of steps 
-                * the app is still WIP so theres still some features that need to be added 
-        * Im going to try and look more into the different folders of the app to see how it works 
-        * Im still not sure on how I would add this onto an app and im a little confused on how to even make an app on a mobile device   
+       * Today I started to dig more deeper into gps systems and how to make navigation systems using only javascript
+       * I first came across a website called [opengeo](https://opengeo.tech/maps/leaflet-gps/) that had information on gps tracking in locations
+           * I first decided to look at the source code and take a closer look on how the code functions
+               * [heres the link of the raw code](https://opengeo.tech/maps/leaflet-gps/src/leaflet-gps.js)
+           *  The conditional statements act as a plugin for leaflet.js which is usually defined by the object of ``L.``. This L exists as a way to define content such as maps, windows, etc... and in this case, the statement is stating if define is equal to ``function.L`` and is equal to define.amd(amd/asynchronous module definition which is a format for organizing modules), this will then pass it to the function ``factory``.
+           * **Next** if ``module`` exists then it will load leaflet with ``factory(require("leaflet"))``, otherwise an error will occur using the global variable of ``window.L``
+           * Another thing to note is that leaflet has different settings that can be customized which
+           * so I decided to test it out on jsbin to see if my location would be tracked.
+       * I'm still a little confused on how to include the map before the inclusion of the GPS tracker because the GPS tracker wont work in jsbin. Maybe I should be tinkering on a different website?
+       * I decided to use my IDE to try out using the location tracker to see if that would change anything
+       * that also didn't work so I decided to look more into the actions for leaflet.
+       * Leaflet has many different types of methods that also seem to be placed in different groups
+       
+       ```js
+       // maps
+       L.map() //creates a map
+       map.setview([lattitude,longitude], zoom) // selects starting position and zoom
+       L.tileLayer("link here....png") //  sets up the background map(trees, streets, roads etc...)
+       // add to map
+           L.polygon([lattitude, longitude], [lattitude, longitude] and so on...)// includes a polygon
+          L.circle(latitude, longitude) // includes a circle
+           L.marker(latitude, longitude)// includes a marker
+       // adding controls
+           L.control.extend() //creates a new map control
+           L.DomEvent.on() //response to clicks
+           map.locate() //asks browser for location
+           map.addLayer()/map.removeLayer() //adds or removes location marker
+       ```
 
-    ## LL3 
-        * I decided to keep looking into the code about GPS tracking so I forked a repository that I looked at my second learning log called [leaflet-gps]() which has a starter package for creating a location tracker button. 
-            * I first looked into the next set of code for the GPS tracker to learn more about how the code works 
-        * I noticed that theres an ``option`` function which basically works like a setting feature for leaflet. It basically lets you turn off or on different settings on leaflet by including a true or false statement. The rest of the code is css. 
-        * for most of the code, its mainly just code thats meant for creating the GPS that checks when the location button is clicked on. If this is true, then it searches for the users location and sends the map to where they last were. If the user location cannot be found, then the user will be given an error stating that the location is not defined. 
-        * now that I understood how the lines of code worked. I focused more on looking into what each command in leaflet does in the code. 
-        * I did a quick google search on the different commands in leaflet and I found a website called [yourdevkit](https://yourdevkit.com/cheat-sheet/leaflet) which basically functions as a little cheat sheet that helps with creating different parts in leaflet such as buttons, setting up maps, navigation, geolocation, adding controls,  using plugins, JSON etc... 
-        Heres the new things that I learned: 
-        ```js
-        // using GEOJSON Layers
+       * Since I already uses polygons, circles, and markers, I tinkered more with the inclusion of controls and maps
+       * I first noticed that you can change the layout of the code in 2d dimensional form. So all of the code, instead of being in one whole line of code, it can be sectioned which may help with organization
+       * I also included new actions such as ``zoom`` and set it to 12 ``minzoom`` was set to 3, and ``maxzoom was 19``. This meant that when I zoomed out the map it would only zoom out a set amount of times before it reached the value of 3 and the same vice versa.
+      
+       ```js
+       const map = L.map('map', {
+       center: [40.7, -74], //sets the position of the map
+       zoom: 12, // sets the starting zoom
+       minzoom:3, // sets the minimum zoom
+       maxzoom:19, //sets the maximum zoom
+       scrollwheelZoom: true // this will make it so that the user can use the scrollwheel to zoom in or out
+       });
+       ```
 
-           var geojsonLayer = L.geoJSON // creates a GeoJSON(set of map features) layer
-            `layerGroup.addLayer(marker) // adds a layer to the given layer group
+       * I'm going to try to look more into APIs and maybe research about their purpose and why there important
+       * I'm still a little confused on how to include controls for leaflets. I might try practicing more tomorrow if I have the time.
 
-            `var customStyle = function(feature) { return {color: 'red', weight: 2}; };` // customize GeoJSON styling
+       * today I went more further into research about API's and maybe tinker with how to use them
+       * I first looked into how API's work and I first found a website called [geeksforgeeks](https://www.geeksforgeeks.org/software-testing/what-is-an-api/)
+           * API(Application programming Interface) allows for the requesting and sharing of data of different softwares and applications
+           * This can be helpful because it allows for developers to access existing data and create apps faster from scratch and their data can be used for different app implementations such as adding maps, weather apps, etc...
+           * How this works is the client requests and API and that data request will go to the server in which the server will respond to the API and the API will respond back to the client which will either provide it with access or no. 
+           * there mainly consists four different types of API's
+           1. Public API's: available to users and developers
+           2. Designed only for organizations
+           3. partner API's: shared APIs to support business
+           4. Composite API's: a combination of of different APIs into a single request
+           * APIs can also be used in a variety of ways:
+           1. processing online payments
+           2. sharing customer data
+           3. integration of maps for mobile apps
+           4. Forecasting weather for apps
+           5. authentication through signing in and verifying their identity
+           6. social media access to permitted data and features
+       * After reading the documentation I wanted to look more into wheelchair accessibility map APIs that may be available to the public
+       * I then found something on github called an Accessible Navigation App which isn't a fully fledged app but it works as a starter build for accessible navigation. [heres the link](https://accessible-navigation-app.vercel.app/)
+           * Basically, how it works is that you type the origin place you currently are then type in the destination. After that, you will be given specific instructions on where to go and which turns to make in order to make it to your destination
+               **PROS**
+               * the interface is given to developers which can prove to be useful for having a rough draft for websites
+               * UI is easy to use and the process is quick
+               * directions are specific and detailed
+               **CONS**
+               * Following the directions can take a long time
+               * navigation can get confusing because of the countless amount of steps
+               * the app is still WIP so there's still some features that need to be added
+       * I'm going to try and look more into the different folders of the app to see how it works
+       * I'm still not sure on how I would add this onto an app and im a little confused on how to even make an app on a mobile device  
 
-             `L.geoJSON(data, {style: customStyle}).addTo(map);`// applies custom styling to the GEOJSON map 
+   ## LL3
+       * I decided to keep looking into the code about GPS tracking so I forked a repository that I looked at my second learning log called [leaflet-gps]() which has a starter package for creating a location tracker button.
+           * I first looked into the next set of code for the GPS tracker to learn more about how the code works
+       * I noticed that there's an ``option`` function which basically works like a setting feature for a leaflet. It basically lets you turn off or on different settings on the leaflet by including a true or false statement. The rest of the code is css.
+       * For most of the code, it's mainly just code that's meant for creating the GPS that checks when the location button is clicked on. If this is true, then it searches for the user's location and sends the map to where they last were. If the user location cannot be found, then the user will be given an error stating that the location is not defined.
+       * now that I understood how the lines of code worked. I focused more on looking into what each command in the leaflet does in the code.
+       * I did a quick google search on the different commands in leaflet and I found a website called [yourdevkit](https://yourdevkit.com/cheat-sheet/leaflet) which basically functions as a little cheat sheet that helps with creating different parts in leaflet such as buttons, setting up maps, navigation, geolocation, adding controls,  using plugins, JSON etc...
+       Here's the new things that I learned:
 
-        // Handling events 
+       ```js
+       // using GEOJSON Layers
+          var geojsonLayer = L.geoJSON // creates a GeoJSON(set of map features) layer
+           `layerGroup.addLayer(marker) // adds a layer to the given layer group
 
-        `marker.on('click', function() { console.log('Marker clicked'); });` // creates an event listener that checks when a marker has been clicked on 
+           `var customStyle = function(feature) { return {color: 'red', weight: 2}; };` // customize GeoJSON styling
 
-        `map.on('zoomend', function() { console.log('Map zoomed'); });` // creates an event listener for the map the checks when the map has been clicked on. 
+            `L.geoJSON(data, {style: customStyle}).addTo(map);`// applies custom styling to the GEOJSON map
 
-        // including plugins 
+       // Handling events
 
-        `npm install leaflet-plugin-name` // installs a plugin using npm 
+       `marker.on('click', function() { console.log('Marker clicked'); });` // creates an event listener that checks when a marker has been clicked on
 
-        `import 'leaflet-plugin-name';` // imports a leaflet plugin 
+       `map.on('zoomend', function() { console.log('Map zoomed'); });` // creates an event listener for the map that checks when the map has been clicked on.
 
-        `L.pluginName().addTo(map);` // implements the plugin to your code
-        ```
+       // including plugins
 
-        * After this, I decided to make a website that uses the topics that I learned about from leaflet to create a website that has a map covering the entire screen and including a button that makes it so that when the user clicks on the given button, their location will be tracked. If I have the time, I might try also including a GPS system if I get the time. 
+       `npm install leaflet-plugin-name` // installs a plugin using npm
 
-            1. I first did the same steps that I first did by creating a defined variable called ``map`` then using ``L.map(`map`)`` then changing the positioning to new york using the ``.setview`` which changes the coordinate and the zoom in amount when the map is opened. 
+       `import 'leaflet-plugin-name';` // imports a leaflet plugin
 
-            2. Then I used ``L.tilelayer`` to include the link to the given streetmap provided by leaflet but I decided to add the marker after I included the button tracker
+       `L.pluginName().addTo(map);` // implements the plugin to your code
+       ```
 
-            3. Next I added the link for leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire map. 
+       * After this, I decided to make a website that uses the topics that I learned about from leaflet to create a website that has a map covering the entire screen and including a button that makes it so that when the user clicks on the given button, their location will be tracked. If I have the time, I might try also including a GPS system if I get the time.
 
-            4. After that. I used the leaflet-gps example from my last learning log to first create a button, creating an event listener that checks when the user clicks on the button. If this is true, then when the button is pressed, it will take the user to their location. 
+           1. I first did the same steps that I first did by creating a defined variable called ``map`` then using ``L.map(`map`)`` then changing the positioning to new york using the ``.setview`` which changes the coordinate and the zoom in amount when the map is opened.
 
-            5. Finally I included an error message to make sure that if the user location is not found, then an error will show up stating that the location is not defined
+           2. Then I used ``L.tilelayer`` to include the link to the given streetmap provided by leaflet but I decided to add the marker after I included the button tracker
 
-        * unfortunately I ended up running into a problem while trying to load everything up. The map didnt pop up in the website. So I did a search as to why my code was doing this and it was because addition of a map used ``LeafletMap`` to create the map location and I also added tileLayer. But with leaflets newest version, you must include ``L.map`` in order to allow for the command to work. The same rule applies for adding tile layers and every other addition. Another issue was that for adding tile layers, I didnt need to include the variable ``new`` before applying it. I just need to add ``L.tileLayer`` and include the link to the map from there. 
+           3. Next I added the link for the leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire map.
 
-        * I want to try making a more simpler system that does not require a button and just takes the user to their location right away and include a GPS system when I get the time. 
+           4. After that, I used the leaflet-gps example from my last learning log to first create a button, creating an event listener that checks when the user clicks on the button. If this is true, then when the button is pressed, it will take the user to their location.
 
-        * today I focused more on learning about how to add leaflet code within my IDE because I still had been struggling with figuring out why my code wasnt popping up when I used http-server 
+           5. Finally I included an error message to make sure that if the user location is not found, then an error will show up stating that the location is not defined
 
-            * I looked more into the basics on the instalation of leaflet to see if I was missing something. I noticed that for using npm/Node.js package manager, you needed to make sure to install [Vite](https://vite.dev/guide/) which is a build tool that helps in more quicker, and intuative development expiriences. So I decided to try it out and see what would happen.  
+       * Unfortunately I ended up running into a problem while trying to load everything up. The map didn't pop up on the website. So I did a search as to why my code was doing this and it was because the addition of a map used`LeafletMap`` to create the map location and I also added tileLayer. But with leaflets newest version, you must include ``L.map`` in order for the command to work. The same rule applies for adding tile layers and every other addition. Another issue was that for adding tile layers, I didn't need to include the variable ``new`` before applying it. I just need to add ``L.tileLayer`` and include the link to the map from there.
 
-            * I first deleted all the leaflet instalation files to start over again. Then I installed vite in my project folder by using ``npm create vite@latest``. Lastly, I then added the npm instalation for leaflet.js and put it in my leaflet-instalation file. 
+       * I want to try making a more simple system that does not require a button and just takes the user to their location right away and includes a GPS system when I get the time.
 
-            * Unfortunately this didnt work and when I tried using http-server to run the website, it still was showing me an error stating that leaflet could not be loaded. 
-<!-- 
+       * today I focused more on learning about how to add leaflet code within my IDE because I still had been struggling with figuring out why my code wasn't popping up when I used http-server
+
+           * I looked more into the basics on the installation of leaflet to see if I was missing something. I noticed that for using npm/Node.js package manager, you needed to make sure to install [Vite](https://vite.dev/guide/) which is a build tool that helps in more quicker, and intuitive development experiences. So I decided to try it out and see what would happen. 
+
+           * I first deleted all the leaflet installation files to start over again. Then I installed vite in my project folder by using ``npm create vite@latest``. Lastly, I then added the npm installation for leaflet.js and put it in my leaflet-installation file.
+
+           * Unfortunately this didn't work and when I tried using http-server to run the website, it still showed me an error stating that the leaflet could not be loaded.
+
+           * I decided to try again and reset all of the vote and leaflet installations and started with a fresh folder
+
+           * Instead of installing vite and leaflet together I installed vite first, cd into the project folder I created(which is ``acsessibilty-gps``), used npm install to import all the changes, and finally did npm install leaflet to install all of the given leaflet files.
+
+           * Finally the map had been working in my IDE. The only changes I needed to add was the inclusion of my css to the src files instead of including all my css in a seperate css file that I was using, and my javascript needed to go inside main.js for vote.
+
+           * To finish everything off, I added a marker at a latitude of 51.5, and longitude of -0.09 using ``L.marker`` and the marker ended up in new york
+
+
+       * im still trying to figure out how to include the location tracker for my code because although I included it properly, I need to change where all my code gets placed now that I understand that my code needs to be in main.js and style.css
+
+
+       * I'm going to try and add the location tracker for my next learning log and also try to customize the website a bit. I might also try and learn more about how creating a gps might work in more detail.
+<!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
 * Challenges, a-ha moments, etc
