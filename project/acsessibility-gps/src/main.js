@@ -1,4 +1,3 @@
-document.body.innerHTML = '<p>main.js is running</p>';
 
 import 'leaflet/dist/leaflet.css';
 import './style.css';
