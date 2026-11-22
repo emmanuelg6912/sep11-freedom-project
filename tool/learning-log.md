@@ -339,8 +339,13 @@
 
         * I want to try making a more simpler system that does not require a button and just takes the user to their location right away and include a GPS system when I get the time. 
 
+        * today I focused more on learning about how to add leaflet code within my IDE because I still had been struggling with figuring out why my code wasnt popping up when I used http-server 
 
+            * I looked more into the basics on the instalation of leaflet to see if I was missing something. I noticed that for using npm/Node.js package manager, you needed to make sure to install [Vite](https://vite.dev/guide/) which is a build tool that helps in more quicker, and intuative development expiriences. So I decided to try it out and see what would happen.  
 
+            * I first deleted all the leaflet instalation files to start over again. Then I installed vite in my project folder by using ``npm create vite@latest``. Lastly, I then added the npm instalation for leaflet.js and put it in my leaflet-instalation file. 
+
+            * Unfortunately this didnt work and when I tried using http-server to run the website, it still was showing me an error stating that leaflet could not be loaded. 
 <!-- 
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
