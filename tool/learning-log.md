@@ -300,74 +300,74 @@
        * I'm going to try and look more into the different folders of the app to see how it works
        * I'm still not sure on how I would add this onto an app and im a little confused on how to even make an app on a mobile device  
 
-   ## LL3
-       * I decided to keep looking into the code about GPS tracking so I forked a repository that I looked at my second learning log called [leaflet-gps]() which has a starter package for creating a location tracker               button.
-       * I first looked into the next set of code for the GPS tracker to learn more about how the code works
-       * I noticed that there's an ``option`` function which basically works like a setting feature for a leaflet. It basically lets you turn off or on different settings on the leaflet by including a true or false               statement. The rest of the code is css.
-       * For most of the code, it's mainly just code that's meant for creating the GPS that checks when the location button is clicked on. If this is true, then it searches for the user's location and sends the map to             where they last were. If the user location cannot be found, then the user will be given an error stating that the location is not defined.
-       * now that I understood how the lines of code worked. I focused more on looking into what each command in the leaflet does in the code.
-       * I did a quick google search on the different commands in leaflet and I found a website called [yourdevkit](https://yourdevkit.com/cheat-sheet/leaflet) which basically functions as a little cheat sheet that               helps with creating different parts in leaflet such as buttons, setting up maps, navigation, geolocation, adding controls,  using plugins, JSON etc...
-         Here's the new things that I learned:
+## LL3
+ * I decided to keep looking into the code about GPS tracking so I forked a repository that I looked at my second learning log called [leaflet-gps]() which has a starter package for creating a location tracker               button.
+ * I first looked into the next set of code for the GPS tracker to learn more about how the code works
+ * I noticed that there's an ``option`` function which basically works like a setting feature for a leaflet. It basically lets you turn off or on different settings on the leaflet by including a true or false               statement. The rest of the code is css.
+ * For most of the code, it's mainly just code that's meant for creating the GPS that checks when the location button is clicked on. If this is true, then it searches for the user's location and sends the map to             where they last were. If the user location cannot be found, then the user will be given an error stating that the location is not defined.
+ * now that I understood how the lines of code worked. I focused more on looking into what each command in the leaflet does in the code.
+ * I did a quick google search on the different commands in leaflet and I found a website called [yourdevkit](https://yourdevkit.com/cheat-sheet/leaflet) which basically functions as a little cheat sheet that               helps with creating different parts in leaflet such as buttons, setting up maps, navigation, geolocation, adding controls,  using plugins, JSON etc...
+   Here's the new things that I learned:
 
-       ```js
-       // using GEOJSON Layers
-          var geojsonLayer = L.geoJSON // creates a GeoJSON(set of map features) layer
-           `layerGroup.addLayer(marker) // adds a layer to the given layer group
+ ```js
+ // using GEOJSON Layers
+    var geojsonLayer = L.geoJSON // creates a GeoJSON(set of map features) layer
+     `layerGroup.addLayer(marker) // adds a layer to the given layer group
 
-           `var customStyle = function(feature) { return {color: 'red', weight: 2}; };` // customize GeoJSON styling
+     `var customStyle = function(feature) { return {color: 'red', weight: 2}; };` // customize GeoJSON styling
 
-            `L.geoJSON(data, {style: customStyle}).addTo(map);`// applies custom styling to the GEOJSON map
+      `L.geoJSON(data, {style: customStyle}).addTo(map);`// applies custom styling to the GEOJSON map
 
-       // Handling events
+ // Handling events
 
-       `marker.on('click', function() { console.log('Marker clicked'); });` // creates an event listener that checks when a marker has been clicked on
+ `marker.on('click', function() { console.log('Marker clicked'); });` // creates an event listener that checks when a marker has been clicked on
 
-       `map.on('zoomend', function() { console.log('Map zoomed'); });` // creates an event listener for the map that checks when the map has been clicked on.
+ `map.on('zoomend', function() { console.log('Map zoomed'); });` // creates an event listener for the map that checks when the map has been clicked on.
 
-       // including plugins
+ // including plugins
 
-       `npm install leaflet-plugin-name` // installs a plugin using npm
+ `npm install leaflet-plugin-name` // installs a plugin using npm
 
-       `import 'leaflet-plugin-name';` // imports a leaflet plugin
+ `import 'leaflet-plugin-name';` // imports a leaflet plugin
 
-       `L.pluginName().addTo(map);` // implements the plugin to your code
-       ```
+ `L.pluginName().addTo(map);` // implements the plugin to your code
+ ```
 
-       * After this, I decided to make a website that uses the topics that I learned about from leaflet to create a website that has a map covering the entire screen and including a button that makes it so that when the          user clicks on the given button, their location will be tracked. If I have the time, I might try also including a GPS system if I get the time.
+ * After this, I decided to make a website that uses the topics that I learned about from leaflet to create a website that has a map covering the entire screen and including a button that makes it so that when the          user clicks on the given button, their location will be tracked. If I have the time, I might try also including a GPS system if I get the time.
 
-           1. I first did the same steps that I first did by creating a defined variable called ``map`` then using ``L.map(`map`)`` then changing the positioning to New York using the ``.setview`` which changes the                    coordinate and the zoom in amount when the map is opened.
+     1. I first did the same steps that I first did by creating a defined variable called ``map`` then using ``L.map(`map`)`` then changing the positioning to New York using the ``.setview`` which changes the                    coordinate and the zoom in amount when the map is opened.
 
-           2. Then I used ``L.tilelayer`` to include the link to the given street map provided by leaflet but I decided to add the marker after I included the button tracker.
+     2. Then I used ``L.tilelayer`` to include the link to the given street map provided by leaflet but I decided to add the marker after I included the button tracker.
 
-           3. Next I added the link for the leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire                   map.
+     3. Next I added the link for the leaflet library so that the map could function for css and javascript. I also made sure to create an id called ``map`` which would change the width and height of the entire                   map.
 
-           4. After that, I used the leaflet-gps example from my last learning log to first create a button, creating an event listener that checks when the user clicks on the button. If this is true, then when the                    button is pressed, it will take the user to their location.
+     4. After that, I used the leaflet-gps example from my last learning log to first create a button, creating an event listener that checks when the user clicks on the button. If this is true, then when the                    button is pressed, it will take the user to their location.
 
-           5. Finally I included an error message to make sure that if the user location is not found, then an error will show up stating that the location is not defined
+     5. Finally I included an error message to make sure that if the user location is not found, then an error will show up stating that the location is not defined
 
-       * Unfortunately I ended up running into a problem while trying to load everything up. The map didn't pop up on the website. So I did a search as to why my code was doing this and it was because the addition of a           map used ``LeafletMap`` to create the map location and I also added tileLayer. But with leaflets newest version, you must include ``L.map`` in order for the command to work. The same rule applies for adding              tile layers and every other addition. Another issue was that for adding tile layers, I didn't need to include the variable ``new`` before applying it. I just need to add ``L.tileLayer`` and include the link to           the map from there.
+ * Unfortunately I ended up running into a problem while trying to load everything up. The map didn't pop up on the website. So I did a search as to why my code was doing this and it was because the addition of a           map used ``LeafletMap`` to create the map location and I also added tileLayer. But with leaflets newest version, you must include ``L.map`` in order for the command to work. The same rule applies for adding              tile layers and every other addition. Another issue was that for adding tile layers, I didn't need to include the variable ``new`` before applying it. I just need to add ``L.tileLayer`` and include the link to           the map from there.
 
-       * I want to try making a more simple system that does not require a button and just takes the user to their location right away and includes a GPS system when I get the time.
+ * I want to try making a more simple system that does not require a button and just takes the user to their location right away and includes a GPS system when I get the time.
 
-       * today I focused more on learning about how to add leaflet code within my IDE because I still had been struggling with figuring out why my code wasn't popping up when I used http-server
+ * today I focused more on learning about how to add leaflet code within my IDE because I still had been struggling with figuring out why my code wasn't popping up when I used http-server
 
-           * I looked more into the basics on the installation of leaflet to see if I was missing something. I noticed that for using npm/Node.js package manager, you needed to make sure to install [Vite]                            (https://vite.dev/guide/) which is a build tool that helps in more quicker, and intuitive development experiences. So I decided to try it out and see what would happen. 
+     * I looked more into the basics on the installation of leaflet to see if I was missing something. I noticed that for using npm/Node.js package manager, you needed to make sure to install [Vite]                            (https://vite.dev/guide/) which is a build tool that helps in more quicker, and intuitive development experiences. So I decided to try it out and see what would happen. 
 
-           * I first deleted all the leaflet installation files to start over again. Then I installed vite in my project folder by using ``npm create vite@latest``. Lastly, I then added the npm installation for                       ``leaflet.js`` and put it in my leaflet-installation file.
+     * I first deleted all the leaflet installation files to start over again. Then I installed vite in my project folder by using ``npm create vite@latest``. Lastly, I then added the npm installation for                       ``leaflet.js`` and put it in my leaflet-installation file.
 
-           * Unfortunately this didn't work and when I tried using http-server to run the website, it still showed me an error stating that the leaflet could not be loaded.
+     * Unfortunately this didn't work and when I tried using http-server to run the website, it still showed me an error stating that the leaflet could not be loaded.
 
-           * I decided to try again and reset all of the vote and leaflet installations and started with a fresh folder
+     * I decided to try again and reset all of the vote and leaflet installations and started with a fresh folder
 
-           * Instead of installing vite and leaflet together I installed vite first, cd into the project folder I created(which is ``acsessibilty-gps``), used npm install to import all the changes, and finally did npm                install leaflet to install all of the given leaflet files.
+     * Instead of installing vite and leaflet together I installed vite first, cd into the project folder I created(which is ``acsessibilty-gps``), used npm install to import all the changes, and finally did npm                install leaflet to install all of the given leaflet files.
 
-           * Finally the map had been working in my IDE. The only changes I needed to add was the inclusion of my css to the src files instead of including all my css in a seperate css file that I was using, and my                   javascript needed to go inside main.js for vote.
+     * Finally the map had been working in my IDE. The only changes I needed to add was the inclusion of my css to the src files instead of including all my css in a seperate css file that I was using, and my                   javascript needed to go inside main.js for vote.
 
-           * To finish everything off, I added a marker at a latitude of 51.5, and longitude of -0.09 using ``L.marker`` and the marker ended up in New York
+     * To finish everything off, I added a marker at a latitude of 51.5, and longitude of -0.09 using ``L.marker`` and the marker ended up in New York
 
-       * Im still trying to figure out how to include the location tracker for my code because although I included it properly, I need to change where all my code gets placed now that I understand that my code needs to           be in ``main.js`` and ``style.css``
+ * Im still trying to figure out how to include the location tracker for my code because although I included it properly, I need to change where all my code gets placed now that I understand that my code needs to           be in ``main.js`` and ``style.css``
 
-       * I'm going to try and add the location tracker for my next learning log and also try to customize the website a bit. I might also try and learn more about how creating a gps might work in more detail.
+ * I'm going to try and add the location tracker for my next learning log and also try to customize the website a bit. I might also try and learn more about how creating a gps might work in more detail.
 
 ### LL4 
 
