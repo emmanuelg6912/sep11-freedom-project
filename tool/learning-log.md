@@ -128,7 +128,7 @@
    * I need to research more on the coordinate system for leaflets because I don't seem to understand how the positioning of markers work and how to overall change coordinates to correspond to a specific area.
    * I'm going to try and look more into accessible maps for leaflet and see how they may function while also researching more on map coordinates
 
-   * I researched more into ([basic leaflet accessibility](https://leafletjs.com/examples/accessibility/))
+   * I researched more into [basic leaflet accessibility](https://leafletjs.com/examples/accessibility/)
        * Leaflet has accessible maps that don't require the use of using a mouse to access different part of a map
        * This can be done in two ways
            1. including labeled markers for user location
@@ -164,7 +164,7 @@
        * sometimes map projection can also apply for globes but it's more difficult
        * map projections will usually look like a circular graph which what ends of allowing for the creation of more accurate graphs
            This is what a map projection looks like
-           ![alt text](image.png)
+           ![alt text](../leaflet-images/image.png)
        * Although the process is difficult, there are usually projection map references that give the coordinate positionings which is what I might try to use
        * There is also another important factor that should be applied with projection maps and that is angles.
        * projection maps have two different sections of angles. One being lines of latitude which are divided to 180 degree sections while lines of longitude only are divided into 60 degree sections
