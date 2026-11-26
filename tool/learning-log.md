@@ -396,7 +396,22 @@ map.on(`click`), function (e) { //when map is clicked on, the function runs
 
 * Although this is very helpful, I want to know more about how to create a marker that moves when the user is moving, however this is a way more complex topic that requires more knowledge of creating apps and tracking user locations. So I might save it for my beyond MVP.
 
-* Today I tinkered more with navigation machines using jsbin based on what I learned yesterday from my youtube search. 
+* Today I tinkered more with navigation machines using jsbin based on what I learned yesterday from my youtube search.
+
+* I first forked the repository that was linked from the youtube video and git cloned it into my repository and made sure that it was in a different folder 
+
+* unfortunately, that didnt work because although I forked the given repository, because I used a public key, the repository didnt load in my IDE. So I decided to look more into any other changes made in the README file since the video that I watched was three years ago. 
+    
+* For building the file you just need to use NPM install with the only requirements needed being that you need an npm, node, and a grunt file. If you just want to use it, then include a link and script tag in the head of your html then tinker from there 
+
+```js
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script> 
+```
+
+* So I tried to  include an extra link file in my src folder that had my html for Vite. 
+
+* Today I decided 
 
 <!--
 * Links you used today (websites, videos, etc)
