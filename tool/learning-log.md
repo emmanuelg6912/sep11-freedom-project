@@ -409,9 +409,82 @@ map.on(`click`), function (e) { //when map is clicked on, the function runs
 <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script> 
 ```
 
-* So I tried to  include an extra link file in my src folder that had my html for Vite. 
+* im still alittle confused on how to add the file to my code 
 
-* Today I decided 
+* When I have the time, Im going to try and apply all these concepts that ive learned into another jsbin or into my vite file 
+
+* Today I decided  To look more into the (GEOJSON)[https://leafletjs.com/examples/geojson/] documentation for leaflet to learn more about how geojson works. 
+
+* Geojson basically is a format for creating different data structures which primarily consist of geometrical features such as circles, lines, polygons, multi polygons etc... 
+
+* These Geojson properties can be used to style leaflet maps within different locations 
+  EX:
+  ```js
+  const geojsonFeature = { // create a variable 
+    "type": "Feature", // geojson type 
+    "properties": { // states the properties/content that is inside the geojson variable 
+      "name": "Coors Field",  
+      "amenity": "Baseball Stadium",
+      "popupContent": "This is where the Rockies play!"
+    },
+    "geometry": { // sets the coordinate and the type of geometrical feature it will have
+      "type": "Point",
+      "coordinates": [-104.99404, 39.75621]
+    }
+  }; 
+  ```
+
+* to add a geojson feature, you need to also add a geojson layer 
+EX:
+```js
+new GeoJSON(geojsonFeature).addTo(map); // make sure to use .addto(map)!
+```
+
+* Or you can also include a empty geojson layer and add from there 
+EX:
+```js
+const myLayer = new GeoJSON().addTo(map);
+myLayer.addData(geojsonFeature);
+```
+
+* you can also customize your polygons by including a ``style`` option which usually requires definining a variable and setting the color, weight, and opacity for the given polygon or any other shape of your choice. Then just make sure to create the geojson layer and use ``.addTo(map)`` to add the Geojson to the map. 
+EX:
+```js
+const myStyle = {
+	"color": "#ff7800",
+	"weight": 5,
+	"opacity": 0.65
+};
+
+new GeoJSON(myLines, {
+	style: myStyle
+}).addTo(map);
+```
+
+* The ``pointToLayer`` feature is used specifically for the customization of points because they function differently from the customization of polygons. 
+
+* To add them, first add the options for the given marker you are creating, then a function is created outside of a geojson layer that will pass that given marker in a layer and will then add that into the map. 
+
+```js
+const geojsonMarkerOptions = { // marker options
+	radius: 8,
+	fillColor: "#ff7800",
+	color: "#000",
+	weight: 1,
+	opacity: 1,
+	fillOpacity: 0.8
+};
+
+new GeoJSON(someGeojsonFeature, { // creates the Geojson feature 
+	pointToLayer(feature, latlng) {
+		return new CircleMarker(latlng, geojsonMarkerOptions); // returns the layer 
+	}
+}).addTo(map); //adds to map
+```
+
+* I want to see more examples that show how these features may be useful for adding in for maps. 
+
+* Im going to try and tinker with these concept that Ive learned to create a map that has different geojson markers in jsbin.
 
 <!--
 * Links you used today (websites, videos, etc)
