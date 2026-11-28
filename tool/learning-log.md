@@ -413,7 +413,7 @@ map.on(`click`), function (e) { //when map is clicked on, the function runs
 
 * When I have the time, Im going to try and apply all these concepts that ive learned into another jsbin or into my vite file 
 
-* Today I decided  To look more into the (GEOJSON)[https://leafletjs.com/examples/geojson/] documentation for leaflet to learn more about how geojson works. 
+* Today I decided  To look more into the [GEOJSON](https://leafletjs.com/examples/geojson/) documentation for leaflet to learn more about how geojson works. 
 
 * Geojson basically is a format for creating different data structures which primarily consist of geometrical features such as circles, lines, polygons, multi polygons etc... 
 
@@ -433,7 +433,6 @@ map.on(`click`), function (e) { //when map is clicked on, the function runs
     }
   }; 
   ```
-
 * to add a geojson feature, you need to also add a geojson layer 
 EX:
 ```js
@@ -485,6 +484,32 @@ new GeoJSON(someGeojsonFeature, { // creates the Geojson feature
 * I want to see more examples that show how these features may be useful for adding in for maps. 
 
 * Im going to try and tinker with these concept that Ive learned to create a map that has different geojson markers in jsbin.
+
+* Unfortunately my IDE wasnt working today so I decided to still mainly focus on learning my tool 
+
+* I first came across the documentation for leaflets [zoom levels](https://leafletjs.com/examples/zoom-levels/)
+
+* for maps, they usually are in the form of a singular image of 256 pixels wide and and 256 pixels high. So depending on the zoom, there will be multiple images or the map may look even more zoomed in. 
+
+* for most methods, making maps requires the creation of an imaginary sphere inside of a cylinder then rolling it out to create a map. However ther are many different methods. [Heres a video that shows this](https://youtu.be/kIID5FDi2JQ)
+
+* A good way to think about zoom levels is through a singular square that once it is zoomed in, the image divides into two to spread out and expand the image more. This repeats until the maximum zoom level is met 
+
+* There are many different other methods for zooming in
+1. you can use fractional zoom which just zooms with decimals 
+  EX:
+  ```js
+  const map = new LeafletMap('map', {
+	zoomSnap: 0.25
+  });
+  ```
+2. you can also change zoom speeds depending on how you zoom in through the use of the ``zoomSnap`` and ``zoomDelta`` options. These options will either make box zooms more larger, make pinch zooms have less zoom, and change how much zoom buttons will zoom in or zoom out 
+
+* There are many different options however these are usually the main concepts that allow for the different zoom features in leaflet 
+
+* I wonder if other maps use these features 
+
+* Im going to try and play around with these different zoom features in jsbin when I have the time 
 
 <!--
 * Links you used today (websites, videos, etc)
